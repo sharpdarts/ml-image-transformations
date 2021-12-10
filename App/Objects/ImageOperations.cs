@@ -6,17 +6,16 @@ namespace App.Objects
     {
         public List<FlipMode>? FlipModes { get; set; }
         public List<RotateMode>? RotateModes { get; set; }
-        public ResizeMode ResizeMode { get; set; }
         public bool Resize { get; set; }
-        public Dimensions? Dimensions { get; set; }
+        public ResizeMode ResizeMode { get; set; }
+        public ResizeDimensions? ResizeDimensions { get; set; }
         public bool Grayscale { get; set; }
-    }
 
-    public class ImageDetails : ImageOperations
-    {
-        public byte[]? ImageBytes { get; set; }
-        public string? Filename { get; set; }
-        public FlipMode FlipMode { get; set; }
-        public RotateMode RotateMode { get; set; }
+        public ImageOperations()
+        {
+            this.FlipModes = new List<FlipMode>();
+            this.RotateModes = new List<RotateMode>();
+            this.ResizeDimensions = new ResizeDimensions();
+        }
     }
 }

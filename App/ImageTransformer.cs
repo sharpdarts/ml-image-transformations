@@ -19,14 +19,26 @@ namespace App
 
         public void PerformImageTransformations(Transformer transformer)
         {
-            if (!Directory.Exists(transformer.FolderPath!))
+            if (!Directory.Exists(transformer.InputFolderPath!))
             {
-                Console.WriteLine($"Folder path does not exist.");
+                Console.WriteLine($"Input folder path does not exist.");
                 return;
             }
 
+            if (!Directory.Exists(transformer.OutputFolderPath!))
+            {
+                Console.WriteLine($"Output folder path does not exist, creating directory.");
+                Directory.CreateDirectory(transformer.OutputFolderPath!);
+            }
+
             // Get all the images to transform, order by name for logging purposes, ToList to avoid any possible lazy loading
-            List<string> files = Directory.GetFiles(transformer.FolderPath!).ToList();
+            List<string> files = Directory.EnumerateFiles(transformer.InputFolderPath!)
+                .Where(file => file.ToLower().EndsWith("png")
+                    || file.ToLower().EndsWith("jpg")
+                    || file.ToLower().EndsWith("jpeg")
+                    || file.ToLower().EndsWith("tga")
+                    || file.ToLower().EndsWith("bmp"))
+                .ToList();
             _numOfFiles = files.Count();
             if (_numOfFiles == 0)
             {
@@ -36,9 +48,13 @@ namespace App
 
             // Figure out how many operations will take place
             if (transformer.ImageOperations!.FlipModes!.Count() > 0)
-                _numOfOperations = _numOfOperations + transformer.ImageOperations!.FlipModes!.Where(x => x != FlipMode.None).Count();
+                _numOfOperations += transformer.ImageOperations!.FlipModes!.Where(x => x != FlipMode.None).Count();
             if (transformer.ImageOperations!.RotateModes!.Count() > 0)
-                _numOfOperations = _numOfOperations + transformer.ImageOperations!.RotateModes!.Where(x => x != RotateMode.None).Count();
+                _numOfOperations += transformer.ImageOperations!.RotateModes!.Where(x => x != RotateMode.None).Count();
+
+            // If the operations is just a resize or grayscale, account for that in the count
+            if (_numOfOperations == 0 && (transformer.ImageOperations.Resize || transformer.ImageOperations.Grayscale))
+                _numOfOperations += 1;
 
             // Used for logging/display
             _totalNumOfFilesToProcess = _numOfFiles * _numOfOperations;
@@ -56,7 +72,7 @@ namespace App
                     var filename = fi.Name;
 
                     // Convert the image to bytes to avoid any file locks while processsing the same image 3 times
-                    byte[] imageArray = File.ReadAllBytes($"{transformer.FolderPath}/{filename}");
+                    byte[] imageArray = File.ReadAllBytes($"{transformer.InputFolderPath}/{filename}");
 
                     // For each FlipMode create one
                     Parallel.ForEach(transformer.ImageOperations!.FlipModes!, flipMode =>
@@ -65,7 +81,8 @@ namespace App
                         {
                             var f = Enum.GetName(typeof(FlipMode), flipMode);
                             var r = Enum.GetName(typeof(RotateMode), rotateMode);
-                            string filename = $"{fi.Name}_{f}_{r}.jpg";
+                            var e = Enum.GetName(typeof(EncodeType), transformer.EncodeType).ToLower();
+                            string filename = $"{fi.Name.Split('.')[0]}_{f}_{r}.{e}";
 
                             var i = Image.Load<Rgba32>(imageArray);
                             i.Mutate(x => x.RotateFlip(rotateMode, flipMode));
@@ -76,8 +93,8 @@ namespace App
                                 opts.Mode = transformer.ImageOperations.ResizeMode;
                                 opts.Size = new Size
                                 {
-                                    Height = transformer.ImageOperations.Dimensions!.Height,
-                                    Width = transformer.ImageOperations.Dimensions!.Width
+                                    Height = transformer.ImageOperations.ResizeDimensions!.Height,
+                                    Width = transformer.ImageOperations.ResizeDimensions!.Width
                                 };
                                 i.Mutate(x => x.Resize(opts));
                             }
@@ -87,7 +104,7 @@ namespace App
                                 i.Mutate(x => x.Grayscale());
                             }
 
-                            i.Save(filename);
+                            i.Save($"{transformer.OutputFolderPath!}/{filename}");
 
                             _totalNumOfProcessedFiles++;
                             Console.WriteLine($"Finished {filename} - {_totalNumOfProcessedFiles} of {_totalNumOfFilesToProcess} files...");
