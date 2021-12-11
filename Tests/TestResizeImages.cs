@@ -19,7 +19,6 @@ public class TestCropImages
         var t = new Transformer();
         t.InputFolderPath = "../../../../Tests/images";
         t.OutputFolderPath = outputFolder;
-        t.ImageOperations = new ImageOperations();
         t.ImageOperations.FlipModes.Add(FlipMode.Vertical);
         t.ImageOperations.FlipModes.Add(FlipMode.None);
         t.ImageOperations.RotateModes.Add(RotateMode.Rotate90);
@@ -30,6 +29,7 @@ public class TestCropImages
         t.ImageOperations.ResizeDimensions.Width = 224;
         t.ImageOperations.Grayscale = true;
         t.EncodeType = EncodeType.PNG;
+        t.Sample = 4;
 
         new ImageTransformer().PerformImageTransformations(t);
     }

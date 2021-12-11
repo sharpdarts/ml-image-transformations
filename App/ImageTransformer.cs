@@ -39,18 +39,36 @@ namespace App
                     || file.ToLower().EndsWith("tga")
                     || file.ToLower().EndsWith("bmp"))
                 .ToList();
-            _numOfFiles = files.Count();
-            if (_numOfFiles == 0)
+
+            if (files.Count() == 0)
             {
                 Console.WriteLine($"Folder path is empty.");
                 return;
             }
 
+            // If user has requested a sample, just take that
+            if (transformer.Sample > 0)
+            {
+                files = files.Take((int)transformer.Sample).ToList();
+            }
+
+            _numOfFiles = files.Count();
+
+            var numOfFlips = 0;
+            var numOfRotates = 0;
+
             // Figure out how many operations will take place
             if (transformer.ImageOperations!.FlipModes!.Count() > 0)
-                _numOfOperations += transformer.ImageOperations!.FlipModes!.Where(x => x != FlipMode.None).Count();
+                numOfFlips = transformer.ImageOperations!.FlipModes!.Where(x => x != FlipMode.None).Count();
             if (transformer.ImageOperations!.RotateModes!.Count() > 0)
-                _numOfOperations += transformer.ImageOperations!.RotateModes!.Where(x => x != RotateMode.None).Count();
+                numOfRotates = transformer.ImageOperations!.RotateModes!.Where(x => x != RotateMode.None).Count();
+
+            // If both modes are set they have a multiplier effect on count, otherwise add them together
+            // STILL BROKEN
+            if (numOfFlips > 0 && numOfRotates > 0)
+                _numOfOperations += numOfFlips * numOfRotates;
+            else
+                _numOfOperations += numOfFlips + numOfRotates;
 
             // If the operations is just a resize or grayscale, account for that in the count
             if (_numOfOperations == 0 && (transformer.ImageOperations.Resize || transformer.ImageOperations.Grayscale))

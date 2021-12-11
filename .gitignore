@@ -467,3 +467,9 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,visualstudiocode,macos,windows,dotnetcore
+
+# Exclude all test run data
+Tests/testruns/**
+
+# Exlcude anything in the BuildOutput folder
+App/BuildOutput/**
