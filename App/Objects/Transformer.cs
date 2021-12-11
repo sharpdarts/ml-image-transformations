@@ -11,6 +11,7 @@ namespace App.Objects
         public Transformer()
         {
             this.ImageOperations = new ImageOperations();
+            this.EncodeType = EncodeType.JPG;
         }
     }
 }

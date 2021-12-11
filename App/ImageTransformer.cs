@@ -1,11 +1,6 @@
 using System.Diagnostics;
-using System.Drawing.Imaging;
 using App.Objects;
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Advanced;
-using SixLabors.ImageSharp.Formats;
-using SixLabors.ImageSharp.Formats.Jpeg;
-using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 
@@ -103,8 +98,8 @@ namespace App
                             // Create the final file name that includes all the operations that took place
                             var f = Enum.GetName(typeof(FlipMode), flipMode);
                             var r = Enum.GetName(typeof(RotateMode), rotateMode);
-                            var e = Enum.GetName(typeof(EncodeType), transformer.EncodeType).ToLower();
-                            string filename = $"{fi.Name.Split('.')[0]}_{f}_{r}.{e}";
+                            var e = Enum.GetName(typeof(EncodeType), transformer.EncodeType!);
+                            string filename = $"{fi.Name.Split('.')[0]}_{f}_{r}.{e!.ToLower()}";
 
                             // Load the image and perform the flip/rotate
                             var i = Image.Load<Rgba32>(imageArray);
