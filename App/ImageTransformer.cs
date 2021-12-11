@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Drawing.Imaging;
 using App.Objects;
 using SixLabors.ImageSharp;
@@ -19,6 +20,8 @@ namespace App
 
         public void PerformImageTransformations(Transformer transformer)
         {
+            Stopwatch stopWatch = Stopwatch.StartNew();
+
             if (!Directory.Exists(transformer.InputFolderPath!))
             {
                 Console.WriteLine($"Input folder path does not exist.");
@@ -137,6 +140,13 @@ namespace App
 
             Console.WriteLine($"Image conversion was successful: {_totalNumOfFilesToProcess == _totalNumOfProcessedFiles}");
             Console.WriteLine($"Number of files: {_totalNumOfFilesToProcess}, Number of conversions: {_totalNumOfProcessedFiles}");
+
+            stopWatch.Stop();
+            TimeSpan ts = stopWatch.Elapsed;
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                ts.Hours, ts.Minutes, ts.Seconds,
+                ts.Milliseconds / 10);
+            Console.WriteLine("RunTime " + elapsedTime);
         }
     }
 }
