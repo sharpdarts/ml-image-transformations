@@ -8,5 +8,5 @@ In addition you can also specify the following:
 - Grayscale
 - Crop (coming soon)
 
-## Examples
-TBD
+## Docs
+https://sharpdarts.github.io/ml-image-transformations/
