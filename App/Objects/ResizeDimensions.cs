@@ -1,6 +1,6 @@
 namespace App.Objects
 {
-    public class ResizeDimensions
+    public class Dimensions
     {
         public int Width { get; set; }
         public int Height { get; set; }

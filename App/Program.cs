@@ -26,11 +26,20 @@ namespace App
             [Option("resizemode", Default = "Stretch", Required = false, HelpText = "Resize mode to use, options are Crop, Pad, BoxPad, Manual, Min, Max, Stretch.")]
             public string? OptResizeMode { get; set; }
 
-            [Option("resizeheight", Default = 224, Required = false, HelpText = "Resize height is resize is true.")]
+            [Option("resizeheight", Default = 0, Required = false, HelpText = "Resize height if resize is true.")]
             public int? OptResizeHeight { get; set; }
 
-            [Option("resizewidth", Default = 224, Required = false, HelpText = "Resize width is resize is true.")]
+            [Option("resizewidth", Default = 0, Required = false, HelpText = "Resize width if resize is true.")]
             public int? OptResizeWidth { get; set; }
+
+            [Option("crop", Default = false, Required = false, HelpText = "Should all the images be cropped.")]
+            public bool? OptCrop { get; set; }
+
+            [Option("cropheight", Default = 0, Required = false, HelpText = "Crop height if crop is true.")]
+            public int? OptCropHeight { get; set; }
+
+            [Option("cropwidth", Default = 0, Required = false, HelpText = "Crop width if crop is true.")]
+            public int? OptCropWidth { get; set; }
         }
 
         public static void Main(string[] args)
@@ -40,6 +49,8 @@ namespace App
                    {
                        Transformer transformer = new Transformer();
 
+                       transformer.Sample = (int)o.OptSample!;
+
                        foreach (var flip in o.OptFlipModes!)
                            transformer.ImageOperations!.FlipModes!.Add((FlipMode)Enum.Parse(typeof(FlipMode), flip));
 
@@ -47,10 +58,15 @@ namespace App
                            transformer.ImageOperations!.RotateModes!.Add((RotateMode)Enum.Parse(typeof(RotateMode), rotate));
 
                        transformer.ImageOperations!.Grayscale = (bool)o.OptGrayscale!;
+
+                       transformer.ImageOperations!.Resize = (bool)o.OptResize!;
                        transformer.ImageOperations!.ResizeMode = (ResizeMode)Enum.Parse(typeof(ResizeMode), o.OptResizeMode!);
                        transformer.ImageOperations.ResizeDimensions!.Height = (int)o.OptResizeHeight!;
                        transformer.ImageOperations.ResizeDimensions!.Width = (int)o.OptResizeWidth!;
-                       transformer.Sample = (int)o.OptSample!;
+
+                       transformer.ImageOperations!.Crop = (bool)o.OptCrop!;
+                       transformer.ImageOperations.CropDimensions!.Height = (int)o.OptCropHeight!;
+                       transformer.ImageOperations.CropDimensions!.Width = (int)o.OptCropWidth!;
 
                        //new ImageTransformer().PerformImageTransformations(transformer);
                    });

@@ -8,14 +8,17 @@ namespace App.Objects
         public List<RotateMode>? RotateModes { get; set; }
         public bool Resize { get; set; }
         public ResizeMode ResizeMode { get; set; }
-        public ResizeDimensions? ResizeDimensions { get; set; }
+        public Dimensions? ResizeDimensions { get; set; }
         public bool Grayscale { get; set; }
+        public bool Crop { get; set; }
+        public Dimensions? CropDimensions { get; set; }
 
         public ImageOperations()
         {
             this.FlipModes = new List<FlipMode>();
             this.RotateModes = new List<RotateMode>();
-            this.ResizeDimensions = new ResizeDimensions();
+            this.ResizeDimensions = new Dimensions();
+            this.CropDimensions = new Dimensions();
         }
     }
 }

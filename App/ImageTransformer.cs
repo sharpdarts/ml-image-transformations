@@ -100,14 +100,28 @@ namespace App
                     {
                         Parallel.ForEach(transformer.ImageOperations!.RotateModes!, rotateMode =>
                         {
+                            // Create the final file name that includes all the operations that took place
                             var f = Enum.GetName(typeof(FlipMode), flipMode);
                             var r = Enum.GetName(typeof(RotateMode), rotateMode);
                             var e = Enum.GetName(typeof(EncodeType), transformer.EncodeType).ToLower();
                             string filename = $"{fi.Name.Split('.')[0]}_{f}_{r}.{e}";
 
+                            // Load the image and perform the flip/rotate
                             var i = Image.Load<Rgba32>(imageArray);
                             i.Mutate(x => x.RotateFlip(rotateMode, flipMode));
 
+                            // Crop operations must take place before any resize operations
+                            if (transformer.ImageOperations.Crop)
+                            {
+                                var cropRectangle = new Rectangle((i.Width - transformer.ImageOperations!.CropDimensions!.Width) / 2,
+                                    (i.Height - transformer.ImageOperations!.CropDimensions!.Height) / 2,
+                                    transformer.ImageOperations!.CropDimensions!.Width,
+                                    transformer.ImageOperations!.CropDimensions!.Height);
+
+                                i.Mutate(x => x.Crop(cropRectangle));
+                            }
+
+                            // Perfrom any resize operations
                             if (transformer.ImageOperations.Resize)
                             {
                                 ResizeOptions opts = new ResizeOptions();
@@ -120,11 +134,13 @@ namespace App
                                 i.Mutate(x => x.Resize(opts));
                             }
 
+                            // Convert to grayscale if requested
                             if (transformer.ImageOperations.Grayscale)
                             {
                                 i.Mutate(x => x.Grayscale());
                             }
 
+                            // Save the file using the final file name
                             i.Save($"{transformer.OutputFolderPath!}/{filename}");
 
                             _totalNumOfProcessedFiles++;

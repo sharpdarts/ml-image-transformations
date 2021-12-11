@@ -19,17 +19,20 @@ public class TestCropImages
         var t = new Transformer();
         t.InputFolderPath = "../../../../Tests/images";
         t.OutputFolderPath = outputFolder;
-        t.ImageOperations.FlipModes.Add(FlipMode.Vertical);
+        //t.ImageOperations.FlipModes.Add(FlipMode.Vertical);
         t.ImageOperations.FlipModes.Add(FlipMode.None);
-        t.ImageOperations.RotateModes.Add(RotateMode.Rotate90);
+        //t.ImageOperations.RotateModes.Add(RotateMode.Rotate90);
         t.ImageOperations.RotateModes.Add(RotateMode.None);
         t.ImageOperations.Resize = true;
         t.ImageOperations.ResizeMode = ResizeMode.Stretch;
-        t.ImageOperations.ResizeDimensions.Height = 224;
-        t.ImageOperations.ResizeDimensions.Width = 224;
-        t.ImageOperations.Grayscale = true;
+        t.ImageOperations.ResizeDimensions.Height = 1200;
+        t.ImageOperations.ResizeDimensions.Width = 1200;
+        t.ImageOperations.Grayscale = false;
         t.EncodeType = EncodeType.PNG;
         t.Sample = 4;
+        t.ImageOperations.Crop = true;
+        t.ImageOperations.CropDimensions.Height = 600;
+        t.ImageOperations.CropDimensions.Width = 600;
 
         new ImageTransformer().PerformImageTransformations(t);
     }
