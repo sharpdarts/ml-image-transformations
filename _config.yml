@@ -2,4 +2,4 @@ theme: jekyll-theme-minimal
 title: "ML Image Transformations"
 
 sidebar:
-  nav: docs
+  nav: "docs"
