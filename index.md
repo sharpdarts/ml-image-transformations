@@ -1,5 +1,6 @@
 ---
-
+sidebar:
+  nav: "docs"
 ---
 
 ## Welcome to GitHub Pages
