@@ -12,3 +12,10 @@ In addition you can also specify the following:
 - Crop
 
 The app utilizes threading and parallel processing to take advantage of all the cores on your machine to generate images as fast as possible.
+
+## How it works
+Coming soon...
+
+## Options for running
+- Standalone App
+- NuGet
