@@ -1,6 +1,6 @@
 ---
-sidebar:
-  nav: "docs"
+title: My page
+sidebar: toc
 ---
 
 ## Welcome to GitHub Pages
