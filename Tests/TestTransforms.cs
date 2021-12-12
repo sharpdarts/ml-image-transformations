@@ -3,17 +3,19 @@ using System.Linq;
 using App;
 using App.Objects;
 using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp.PixelFormats;
 using Xunit;
 using CsvHelper;
 using System.Globalization;
 using System.Collections.Generic;
+using SixLabors.ImageSharp;
 
 namespace Tests;
 
-public class TestCropImages
+public class TestTransforms
 {
     [Fact]
-    public void TestResize1()
+    public void TestTransforms1()
     {
         string outputFolder = "../../../../Tests/testruns/resize_crop_grayscale_png_sample_csv";
         if (Directory.Exists(outputFolder))
@@ -59,5 +61,16 @@ public class TestCropImages
             records = csv.GetRecords<Csv>().ToList();
         }
         Assert.Equal(16, records.Count());
+
+        // Find an image an ensure operations were done
+        var pngFile = Directory.EnumerateFiles(outputFolder)
+                .Where(file => file.ToLower().EndsWith("png"))
+                .FirstOrDefault();
+        Assert.Equal(true, pngFile != null);
+
+        byte[] imageArray = File.ReadAllBytes(pngFile!);
+        var i = Image.Load<Rgba32>(imageArray);
+        Assert.Equal(1200, i.Width);
+        Assert.Equal(1200, i.Height);
     }
 }
