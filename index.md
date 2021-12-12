@@ -1,10 +1,5 @@
 ---
-sidebar:
-  - title: "Title"
-    text: "Some text here."
-  - title: "Another Title"
-    text: "More text here."
-    nav: sidebar-sample
+
 ---
 
 ## Welcome to GitHub Pages
