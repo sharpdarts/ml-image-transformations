@@ -1,4 +1,5 @@
 theme: jekyll-theme-minimal
+title: "ML Image Transformations"
 defaults:
   # _docs
   - scope:
