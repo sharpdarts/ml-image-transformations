@@ -7,6 +7,7 @@ namespace App.Objects
         public EncodeType EncodeType { get; set; }
         public ImageOperations? ImageOperations { get; set; }
         public int? Sample { get; set; }
+        public bool? ExportCsv { get; set; }
 
         public Transformer()
         {

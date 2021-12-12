@@ -1,5 +1,7 @@
 using System.Diagnostics;
+using System.Globalization;
 using App.Objects;
+using CsvHelper;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
@@ -12,6 +14,7 @@ namespace App
         private int _numOfOperations = 0;
         private int _totalNumOfFilesToProcess = 0;
         private int _totalNumOfProcessedFiles = 0;
+        private List<Csv> _filesConverted = new List<Csv>();
 
         public void PerformImageTransformations(Transformer transformer)
         {
@@ -124,6 +127,7 @@ namespace App
                             // Save the file using the final file name
                             i.Save($"{transformer.OutputFolderPath!}/{filename}");
 
+                            _filesConverted.Add(new Csv { Filename = filename });
                             _totalNumOfProcessedFiles++;
                             Console.WriteLine($"Finished {filename} - {_totalNumOfProcessedFiles} of {_totalNumOfFilesToProcess} files...");
                         });
@@ -137,6 +141,24 @@ namespace App
 
             Console.WriteLine($"Image conversion was successful: {_totalNumOfFilesToProcess == _totalNumOfProcessedFiles}");
             Console.WriteLine($"Number of files: {_totalNumOfFilesToProcess}, Number of conversions: {_totalNumOfProcessedFiles}");
+
+            // Try to save the CSV export if requested
+            if ((bool)transformer.ExportCsv!)
+            {
+                try
+                {
+                    Console.WriteLine($"Generating CSV file...");
+                    using (var writer = new StreamWriter($"{transformer.OutputFolderPath!}/transformations.csv"))
+                    using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                    {
+                        csv.WriteRecords(_filesConverted);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Encountered an error while trying to save the CSV file: {ex.Message}");
+                }
+            }
 
             stopWatch.Stop();
             TimeSpan ts = stopWatch.Elapsed;

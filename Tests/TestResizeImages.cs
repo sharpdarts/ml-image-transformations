@@ -33,6 +33,7 @@ public class TestCropImages
         t.ImageOperations.Crop = true;
         t.ImageOperations.CropDimensions.Height = 600;
         t.ImageOperations.CropDimensions.Width = 600;
+        t.ExportCsv = true;
 
         new ImageTransformer().PerformImageTransformations(t);
     }

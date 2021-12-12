@@ -40,6 +40,9 @@ namespace App
 
             [Option("cropwidth", Default = 0, Required = false, HelpText = "Crop width if crop is true.")]
             public int? OptCropWidth { get; set; }
+
+            [Option("exportcsv", Default = false, Required = false, HelpText = "Should a CSV of all filenames be generated.")]
+            public bool? OptExportCsv { get; set; }
         }
 
         public static void Main(string[] args)
@@ -50,6 +53,7 @@ namespace App
                        Transformer transformer = new Transformer();
 
                        transformer.Sample = (int)o.OptSample!;
+                       transformer.ExportCsv = (bool)o.OptExportCsv!;
 
                        foreach (var flip in o.OptFlipModes!)
                            transformer.ImageOperations!.FlipModes!.Add((FlipMode)Enum.Parse(typeof(FlipMode), flip));
