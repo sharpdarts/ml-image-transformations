@@ -52,31 +52,18 @@ namespace App
 
             _numOfFiles = files.Count();
 
-            var numOfFlips = 0;
-            var numOfRotates = 0;
-
             // Figure out how many operations will take place
-            if (transformer.ImageOperations!.FlipModes!.Count() > 0)
-                numOfFlips = transformer.ImageOperations!.FlipModes!.Where(x => x != FlipMode.None).Count();
-            if (transformer.ImageOperations!.RotateModes!.Count() > 0)
-                numOfRotates = transformer.ImageOperations!.RotateModes!.Where(x => x != RotateMode.None).Count();
+            var numOfFlips = transformer.ImageOperations!.FlipModes!.Count();
+            var numOfRotates = transformer.ImageOperations!.RotateModes!.Count();
 
-            // If both modes are set they have a multiplier effect on count, otherwise add them together
-            // STILL BROKEN
-            if (numOfFlips > 0 && numOfRotates > 0)
-                _numOfOperations += numOfFlips * numOfRotates;
-            else
-                _numOfOperations += numOfFlips + numOfRotates;
-
-            // If the operations is just a resize or grayscale, account for that in the count
-            if (_numOfOperations == 0 && (transformer.ImageOperations.Resize || transformer.ImageOperations.Grayscale))
-                _numOfOperations += 1;
+            // Calculate the total number of operations
+            _numOfOperations += numOfFlips * numOfRotates;
 
             // Used for logging/display
             _totalNumOfFilesToProcess = _numOfFiles * _numOfOperations;
 
-            Console.WriteLine($"Number of files to convert: {_numOfFiles}, with {_numOfOperations} of operations to complete.");
-            Console.WriteLine($"Starting conversion on {_totalNumOfFilesToProcess} number of files...");
+            Console.WriteLine($"Number of files to transform: {_numOfFiles}, with {_numOfOperations} of operations to complete.");
+            Console.WriteLine($"Starting transformations...");
 
             // Parallelize the processing of each file for speed
             Parallel.ForEach(files, file =>
@@ -90,7 +77,6 @@ namespace App
                     // Convert the image to bytes to avoid any file locks while processsing the same image 3 times
                     byte[] imageArray = File.ReadAllBytes($"{transformer.InputFolderPath}/{filename}");
 
-                    // For each FlipMode create one
                     Parallel.ForEach(transformer.ImageOperations!.FlipModes!, flipMode =>
                     {
                         Parallel.ForEach(transformer.ImageOperations!.RotateModes!, rotateMode =>

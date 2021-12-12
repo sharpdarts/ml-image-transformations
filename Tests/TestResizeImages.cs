@@ -19,9 +19,9 @@ public class TestCropImages
         var t = new Transformer();
         t.InputFolderPath = "../../../../Tests/images";
         t.OutputFolderPath = outputFolder;
-        //t.ImageOperations.FlipModes.Add(FlipMode.Vertical);
+        t.ImageOperations.FlipModes.Add(FlipMode.Vertical);
         t.ImageOperations.FlipModes.Add(FlipMode.None);
-        //t.ImageOperations.RotateModes.Add(RotateMode.Rotate90);
+        t.ImageOperations.RotateModes.Add(RotateMode.Rotate90);
         t.ImageOperations.RotateModes.Add(RotateMode.None);
         t.ImageOperations.Resize = true;
         t.ImageOperations.ResizeMode = ResizeMode.Stretch;
