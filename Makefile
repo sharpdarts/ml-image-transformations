@@ -10,5 +10,8 @@ run:
 help:
 	./App/BuildOutput/App --help
 
-publish:
-	dotnet publish -o ColabOutput -c Release -r linux-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+publishclean:
+	rm -rf PublishOutput
+
+publish-mac: publishclean
+	dotnet publish ./App/App.csproj -o PublishOutput -c Release -r osx-x64 --self-contained true -p:PublishSingleFile=true
