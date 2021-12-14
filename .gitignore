@@ -475,4 +475,8 @@ Tests/testruns/**
 App/BuildOutput/**
 
 # Exlcude anything in the BuildOutput folder
-App/PublishOutput/**
+App/PublishOutput/
+App/PublishOutput/*
+PublishOutput/Linux/**
+PublishOutput/Mac/**
+PublishOutput/Win/**

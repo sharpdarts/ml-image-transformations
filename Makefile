@@ -10,8 +10,20 @@ run:
 help:
 	./App/BuildOutput/App --help
 
-publishclean:
-	rm -rf PublishOutput
+publish-mac-clean:
+	rm -rf PublishOutput/Mac
 
-publish-mac: publishclean
-	dotnet publish ./App/App.csproj -o PublishOutput -c Release -r osx-x64 --self-contained true -p:PublishSingleFile=true
+publish-mac: publish-mac-clean
+	dotnet publish ./App/App.csproj -o PublishOutput/Mac -c Release -r osx-x64 --self-contained true -p:PublishSingleFile=true /p:DebugType=None /p:DebugSymbols=false
+
+publish-linux-clean:
+	rm -rf PublishOutput/Linux
+
+publish-linux: publish-linux-clean
+	dotnet publish ./App/App.csproj -o PublishOutput/Linux -c Release -r linux-x64 --self-contained true -p:PublishSingleFile=true /p:DebugType=None /p:DebugSymbols=false
+
+publish-win-clean:
+	rm -rf PublishOutput/Win
+
+publish-win: publish-win-clean
+	dotnet publish ./App/App.csproj -o PublishOutput/Win -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true /p:DebugType=None /p:DebugSymbols=false
