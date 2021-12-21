@@ -8,6 +8,12 @@ namespace App
     {
         public class Options
         {
+            [Option("inputfolder", Default = "", Required = false, HelpText = "Input folder.")]
+            public string? OptInputFolder { get; set; }
+
+            [Option("outputfolder", Default = "", Required = false, HelpText = "Output folder.")]
+            public string? OptOutputFolder { get; set; }
+
             [Option("sample", Default = 0, Required = false, HelpText = "Only perform operations on a sample set, used for quick validation.")]
             public int? OptSample { get; set; }
 
@@ -72,7 +78,10 @@ namespace App
                        transformer.ImageOperations.CropDimensions!.Height = (int)o.OptCropHeight!;
                        transformer.ImageOperations.CropDimensions!.Width = (int)o.OptCropWidth!;
 
-                       //new ImageTransformer().PerformImageTransformations(transformer);
+                       transformer.InputFolderPath = (string)o.OptInputFolder!;
+                       transformer.OutputFolderPath = (string)o.OptOutputFolder!;
+
+                       new ImageTransformer().PerformImageTransformations(transformer);
                    });
         }
     }
