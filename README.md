@@ -8,6 +8,8 @@ In addition you can also specify the following:
 - Grayscale
 - Crop
 
+MLIT is written to take advantage of all the available processors on your machine, so the more cores you have the faster it will run.
+
 ## Docs
 Please check out our documentation for a complete walk-through of using MLIT.
 
