@@ -1,4 +1,4 @@
-# ML Image Transformations
+# ML Image Transformations - MLIT
 The ML Image Transformations (MLIT) app is a console utility app to transform images for machine learning tasks where you may need to generate multiple versions of an image to increase your dataset size. This app allows you to specify a folder of images and then specify the transformations to take place:
 - Flip: Horizontal, Vertical
 - Rotate: 90, 180, 270
