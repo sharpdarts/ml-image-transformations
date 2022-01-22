@@ -43,6 +43,14 @@ docker run -v $(pwd)/images:/images sharpdarts-mlit --inputfolder=/images --outp
 
 You need to mount the `images` directory to the internal `images` folder in the Docker container. You can then pass `/images` to the `inputfolder` and `outputfolder` arguments.
 
+## Arguments
+The following arguments are accepted by the CLI:
+
+- **inputfolder** (string): The folder where the images you want to process are located. This should be a single folder of images, the CLI will not perform any recurssion on the folder.
+- **outputfolder** (string): The folder where the output images will be placed. This can be the same folder as the input or something different. If the output folder does not exist, the CLI will attempt to create it.
+- **sample** (integer): You can use this to limit the number of conversions to perform. This is a convenience argument so you can test the conversions on a couple of images only rather than processing the entire folder.
+- **flipmodes** (space delimited string array)
+
 ## Releases
 You can view all the releases here: https://github.com/sharpdarts/ml-image-transformations/releases
 
