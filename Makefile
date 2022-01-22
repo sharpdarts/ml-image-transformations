@@ -27,3 +27,9 @@ publish-win-clean:
 
 publish-win: publish-win-clean
 	dotnet publish ./App/App.csproj -o PublishOutput/Win -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true /p:DebugType=None /p:DebugSymbols=false
+
+docker:
+	docker build -f ./App/Dockerfile -t sharpdarts-mlit .
+
+drun:
+	docker run sharpdarts-mlit
