@@ -9,7 +9,7 @@ This is done using the `--flipmodes` argument which is required when invoking th
 - **Horizontal**: Perform a horizontal flip on the images
 - **Vertical**: Perform a vertical flip on the images
 
-These arguments are passed as a space delimited string, for instance:
+These arguments are passed as a space delimited string and **MUST BE** capitalized, for instance:
 
 ```
 --flipmodes=Vertical Horizontal
@@ -20,3 +20,5 @@ These arguments are passed as a space delimited string, for instance:
 ```
 
 ## Examples
+Consider the following image:
+
