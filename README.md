@@ -62,7 +62,23 @@ The following arguments are accepted by the CLI:
 
 `--flipmodes=None`, will perform no flip operations on the images
 
-`--flipmodes=Horizontal Vertical`, will perform both horizontal and vertical flips on the images
+`--flipmodes=Horizontal Vertical`, will perform both horizontal and vertical flips on the images, this creates two additional images
+
+- **rotatemodes** (space delimited string array, **REQUIRED**): The requested rotates to perform on the images. Options are None, Rotate90, Rotate180, and/or Rotate270, these options must be capitalized! At least one value is required.
+
+`--rotatemodes=None`, will perform no rotate operations on the images
+
+`--rotatemodes=Rotate90 Rotate180`, will perform both 90 degree rotation and a 180 degree rotation on the images, this creates two additional images
+
+- **grayscale** (boolean): Flag to indicate whether you want the images to be converted to grayscale.
+
+`--grayscale=true`
+
+- **resize** (boolean): Flag to indicate whether you want to resize the images.
+
+`--resize=true`
+
+
 
 ## Releases
 You can view all the releases here: https://github.com/sharpdarts/ml-image-transformations/releases
