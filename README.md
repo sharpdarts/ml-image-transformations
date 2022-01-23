@@ -61,6 +61,7 @@ The following arguments are accepted by the CLI:
 - **flipmodes** (space delimited string array, **REQUIRED**): The requested flips to perform on the images. Options are None, Horizontal, and/or Vertical, these options must be capitalized! At least one value is required.
 
 `--flipmodes=None`, will perform no flip operations on the images
+
 `--flipmodes=Horizontal Vertical`, will perform both horizontal and vertical flips on the images
 
 ## Releases
