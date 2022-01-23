@@ -26,11 +26,11 @@ docker pull sharpdartsgithub/mlit:latest
 To run the image, you can use the folliwng command:
 
 ```
-docker run sharpdarts-mlit --help
+docker run sharpdartsgithub/mlit --help
 ```
 
 The only difference when running with Docker is you must mount the volume where your images are located:
 
 ```
-docker run -v $(pwd)/images:/images mlit --inputfolder=/images
+docker run -v $(pwd)/images:/images sharpdartsgithub/mlit --inputfolder=/images
 ```
