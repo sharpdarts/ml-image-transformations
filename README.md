@@ -78,7 +78,33 @@ The following arguments are accepted by the CLI:
 
 `--resize=true`
 
+- **resizemode** (string **REQUIRED IF** if indicate a resize should take place): Flag to indicate how the resize should be performed. Options are Crop, Pad, BoxPad, Max, Min, and Stretch, these options must be capitalized.
 
+`--resizemode=Stretch`, will stretch the image if the aspect ration changes during the resize operation.
+
+- **resizeheight** (integer **REQUIRED IF** if indicate a resize should take place): Height of the new image if a resize operation is taking place.
+
+`--resizeheight=244`, sets the height of the new image to 244
+
+- **resizewidth** (integer **REQUIRED IF** if indicate a resize should take place): Width of the new image if a resize operation is taking place.
+
+`--resizewidth=244`, sets the width of the new image to 244
+
+- **crop** (boolean): Flag to indicate whether you want to crop the images. **NOTE**: Currently crops take place from the center of the image, this is the only option available.
+
+`--crop=true`
+
+- **cropheight** (integer **REQUIRED IF** if indicate a crop should take place): Height of the new image if a crop operation is taking place.
+
+`--cropheight=244`, sets the height of the new image to 244
+
+- **cropwidth** (integer **REQUIRED IF** if indicate a crop should take place): Width of the new image if a crop operation is taking place.
+
+`--cropwidth=244`, sets the width of the new image to 244
+
+- **exportcsv** (boolean): Flag to indicate whether you want a CSV of all the image file names to be exported.
+
+`--exportcsv=true`, exports a CSV of filenames after processing is complete.
 
 ## Releases
 You can view all the releases here: https://github.com/sharpdarts/ml-image-transformations/releases
