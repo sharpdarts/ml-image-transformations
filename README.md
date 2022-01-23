@@ -52,6 +52,14 @@ Number of files: 4, Number of conversions: 4
 RunTime 00:00:04.52
 ```
 
+The following lines indicate a success or partial failure:
+```
+Image conversion was successful: True
+Number of files: 4, Number of conversions: 4
+```
+
+The CLI will not fail completely if it encounteres an error. Instead it will attempt to complete as many conversions as possible. For instance, if you have 100 conversions to perform, but only 99 complete, the CLI will indicate a the conversion was not successful even though it completed 99 of the 100 conversions.
+
 ## Using the CLI
 Consider the following directory structure:
 
