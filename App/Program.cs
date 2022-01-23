@@ -8,7 +8,7 @@ namespace App
     {
         public class Options
         {
-            [Option("inputfolder", Default = "", Required = false, HelpText = "Input folder.")]
+            [Option("inputfolder", Default = "", Required = true, HelpText = "Input folder.")]
             public string? OptInputFolder { get; set; }
 
             [Option("outputfolder", Default = "", Required = false, HelpText = "Output folder.")]
