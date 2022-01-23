@@ -86,7 +86,7 @@ Consider the following directory structure:
 You can run the following command from the parent directory:
 
 ```
-docker run -v $(pwd)/images:/images sharpdarts-mlit --inputfolder=/images --outputfolder=/images --sample=2 --flipmodes=Vertical --rotatemodes=None
+docker run -v $(pwd)/images:/images sharpdartsgithub/mlit --inputfolder=/images --outputfolder=/images --sample=2 --flipmodes=Vertical --rotatemodes=None
 ```
 
 You need to mount the `images` directory to the internal `images` folder in the Docker container. You can then pass `/images` to the `inputfolder` and `outputfolder` arguments.
