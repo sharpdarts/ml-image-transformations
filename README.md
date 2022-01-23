@@ -17,6 +17,41 @@ Please check out our documentation for a complete walk-through of using MLIT.
 
 https://sharpdarts.github.io/ml-image-transformations/
 
+## How It Works
+Consider the following directory structure:
+
+- Parent Directory
+  - images (this folder holds all the images we want to transform)
+    - person1.jpg
+    - person2.jpg
+
+
+From the parent directory run the following command:
+
+```
+./MLImageTransformer --inputfolder=images --outputfolder=images/ouput --flipmodes=Vertical --rotatemodes=Rotate90 Rotate180
+```
+
+This will create the directory `output` in the `images` directory with the following files:
+- person1_Vertical_Rotate90.jpg
+- person1_Vertical_Rotate180.jpg
+- person2_Vertical_Rotate90.jpg
+- person2_Vertical_Rotate180.jpg
+
+The CLI will produce the following output to indicate what it performed:
+```
+Output folder path does not exist, creating directory.
+Number of files to transform: 2, with 2 of operations to complete.
+Starting transformations...
+Finished person1_Vertical_Rotate90.jpg - 1 of 4 files...
+Finished person1_Vertical_Rotate180.jpg - 2 of 4 files...
+Finished person2_Vertical_Rotate180.jpg - 3 of 4 files...
+Finished person2_Vertical_Rotate90.jpg - 4 of 4 files...
+Image conversion was successful: True
+Number of files: 4, Number of conversions: 4
+RunTime 00:00:04.52
+```
+
 ## Using the CLI
 Consider the following directory structure:
 
