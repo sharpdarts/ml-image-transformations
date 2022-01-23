@@ -1,6 +1,8 @@
 # ML Image Transformations - MLIT
 
-<img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/mlit-logo.png" alt="logo" width="200" align="center"/>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/mlit-logo.png" alt="logo" width="400" align="center"/>
+</p>
 
 The ML Image Transformations (MLIT) is a CLI & Docker image to transform images for machine learning tasks where you need to perform data augmentation to generate multiple versions of an image to increase your dataset size. This tool allows you to specify a folder of images and then specify the transformations to take place, such as:
 
