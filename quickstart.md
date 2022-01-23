@@ -20,7 +20,7 @@ Linux example:
 The Docker container is located in Docker Hub and can be pulled via the following command:
 
 ```
-.
+docker pull sharpdartsgithub/mlit:latest
 ```
 
 To run the image, you can use the folliwng command:
@@ -32,5 +32,5 @@ docker run sharpdarts-mlit --help
 The only difference when running with Docker is you must mount the volume where your images are located:
 
 ```
-docker run -v $(pwd)/images:/images sharpdarts-mlit --inputfolder=/images
+docker run -v $(pwd)/images:/images mlit --inputfolder=/images
 ```
