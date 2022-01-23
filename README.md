@@ -46,10 +46,22 @@ You need to mount the `images` directory to the internal `images` folder in the 
 ## Arguments
 The following arguments are accepted by the CLI:
 
-- **inputfolder** (string): The folder where the images you want to process are located. This should be a single folder of images, the CLI will not perform any recurssion on the folder.
+- **inputfolder** (string, **REQUIRED**): The folder where the images you want to process are located. This should be a single folder of images, the CLI will not perform any recurssion on the folder.
+
+`--inputfolder=my_directory`
+
 - **outputfolder** (string): The folder where the output images will be placed. This can be the same folder as the input or something different. If the output folder does not exist, the CLI will attempt to create it.
+
+`--outputfolder=my_other_directory`
+
 - **sample** (integer): You can use this to limit the number of conversions to perform. This is a convenience argument so you can test the conversions on a couple of images only rather than processing the entire folder.
-- **flipmodes** (space delimited string array)
+
+`--sample=2`
+
+- **flipmodes** (space delimited string array, **REQUIRED**): The requested flips to perform on the images. Options are None, Horizontal, and/or Vertical, these options must be capitalized! At least one value is required.
+
+`--flipmodes=None`, will perform no flip operations on the images
+`--flipmodes=Horizontal Vertical`, will perform both horizontal and vertical flips on the images
 
 ## Releases
 You can view all the releases here: https://github.com/sharpdarts/ml-image-transformations/releases
