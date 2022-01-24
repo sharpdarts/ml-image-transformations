@@ -20,7 +20,7 @@ We can grayscale this image using the following commands:
 <p align="left">
   <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_None_None_graysacle.jpg" alt="logo" width="200"/>
   <br />
-  <em>Image size 244 x 244</em>
+  <em>Image size 1800 x 2400</em>
 </p>
 
 ### More Examples
