@@ -65,4 +65,4 @@ We can flip this image using the following commands:
 </p>
 
 ### More Examples
-You can find more detailed examples here: https://sharpdarts.github.io/ml-image-transformations/examples.html
+You can find more detailed examples here: [Examples Page](https://sharpdarts.github.io/ml-image-transformations/examples.html)
