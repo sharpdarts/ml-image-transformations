@@ -23,7 +23,7 @@ These arguments are passed as a space delimited string and **MUST BE** capitaliz
 Consider the following image, found in a directory titled `my-images` with a name of `red-jacket.jpg`:
 
 <p align="left">
-  <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket.jpg" alt="logo" width="300"/>
+  <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket.jpg" alt="logo" width="200"/>
   <br />
   <em>Image size 1800 x 2400</em>
 </p>
@@ -36,7 +36,7 @@ We can flip this image using the following commands:
 ./MLImageTransformer --inputfolder=my-images --flipmodes=Vertical --rotatemodes=None
 ```
 <p align="left">
-  <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_Vertical_None.jpg" alt="logo" width="300"/>
+  <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_Vertical_None.jpg" alt="logo" width="200"/>
   <br />
   <em>Image size 1800 x 2400</em>
 </p>
@@ -47,7 +47,7 @@ We can flip this image using the following commands:
 ./MLImageTransformer --inputfolder=my-images --flipmodes=Horizontal --rotatemodes=None
 ```
 <p align="left">
-  <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_Horizontal_None.jpg" alt="logo" width="300"/>
+  <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_Horizontal_None.jpg" alt="logo" width="200"/>
   <br />
   <em>Image size 1800 x 2400</em>
 </p>
@@ -58,8 +58,8 @@ We can flip this image using the following commands:
 ./MLImageTransformer --inputfolder=my-images --flipmodes=Horizontal Vertical --rotatemodes=None
 ```
 <p align="left">
-<img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_Vertical_None.jpg" alt="logo" width="300"/>
-  <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_Horizontal_None.jpg" alt="logo" width="300"/>
+<img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_Vertical_None.jpg" alt="logo" width="200"/>
+  <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_Horizontal_None.jpg" alt="logo" width="200"/>
   <br />
   <em>Image size 1800 x 2400</em>
 </p>
