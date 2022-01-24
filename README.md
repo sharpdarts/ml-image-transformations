@@ -98,7 +98,7 @@ The following arguments are accepted by the CLI:
 
 `--inputfolder=my_directory`
 
-- **outputfolder** (string): The folder where the output images will be placed. This can be the same folder as the input or something different. If the output folder does not exist, the CLI will attempt to create it.
+- **outputfolder** (string, **REQUIRED**): The folder where the output images will be placed. This can be the same folder as the input or something different. If the output folder does not exist, the CLI will attempt to create it.
 
 `--outputfolder=my_other_directory`
 
