@@ -63,3 +63,6 @@ We can flip this image using the following commands:
   <br />
   <em>Image size 1800 x 2400</em>
 </p>
+
+### More Examples
+You can find more detailed examples here: https://sharpdarts.github.io/ml-image-transformations/examples.html
