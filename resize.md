@@ -31,7 +31,7 @@ We can resize this image using the following commands:
 <p align="left">
   <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_None_None_size1_example.jpg" alt="logo" width="200"/>
   <br />
-  <em>Image size 1800 x 2400</em>
+  <em>Image size 1600 x 500</em>
 </p>
 
 ### Resize with Crop
@@ -42,7 +42,7 @@ We can resize this image using the following commands:
 <p align="left">
   <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_None_None_resize2_example.jpg" alt="logo" width="200"/>
   <br />
-  <em>Image size 1800 x 2400</em>
+  <em>Image size 1600 x 500</em>
 </p>
 
 ### Resize with BoxPad
@@ -53,7 +53,7 @@ We can resize this image using the following commands:
 <p align="left">
   <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_None_None_resize3_example.jpg" alt="logo" width="200"/>
   <br />
-  <em>Image size 1800 x 2400</em>
+  <em>Image size 1600 x 500</em>
 </p>
 
 ### More Examples
