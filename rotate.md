@@ -35,7 +35,7 @@ We can flip this image using the following commands:
 ### 90 Degree Rotation
 
 ```
-./MLImageTransformer --inputfolder=my-images --flipmodes=None --rotatemodes=Rotate90
+./MLImageTransformer --inputfolder=my-images --outputfolder=my-images --flipmodes=None --rotatemodes=Rotate90
 ```
 <p align="left">
   <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_None_Rotate90.jpg" alt="logo" width="200"/>
@@ -46,7 +46,7 @@ We can flip this image using the following commands:
 ### 180 Degree Rotation
 
 ```
-./MLImageTransformer --inputfolder=my-images --flipmodes=None --rotatemodes=Rotate180
+./MLImageTransformer --inputfolder=my-images --outputfolder=my-images --flipmodes=None --rotatemodes=Rotate180
 ```
 <p align="left">
   <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_None_Rotate180.jpg" alt="logo" width="200"/>
@@ -57,7 +57,7 @@ We can flip this image using the following commands:
 ### 270 Degree Rotation
 
 ```
-./MLImageTransformer --inputfolder=my-images --flipmodes=None Vertical --rotatemodes=Rotate270
+./MLImageTransformer --inputfolder=my-images --outputfolder=my-images --flipmodes=None Vertical --rotatemodes=Rotate270
 ```
 <p align="left">
 <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_None_Rotate270.jpg" alt="logo" width="200"/>
@@ -68,7 +68,7 @@ We can flip this image using the following commands:
 ### 90, 180, & 270 Degree Rotation
 
 ```
-./MLImageTransformer --inputfolder=my-images --flipmodes=None Vertical --rotatemodes=Rotate90 Rotate180 Rotate270
+./MLImageTransformer --inputfolder=my-images --outputfolder=my-images --flipmodes=None Vertical --rotatemodes=Rotate90 Rotate180 Rotate270
 ```
 <p align="left">
   <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_None_Rotate90.jpg" alt="logo" width="200"/>

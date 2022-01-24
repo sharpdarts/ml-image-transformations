@@ -19,7 +19,7 @@ We can crop this image using the following commands:
 ### Crop to a 244 x 244 Square
 
 ```
-./MLImageTransformer --inputfolder=my-images --flipmodes=None --rotatemodes=None --crop=true --cropwidth=244 --cropheight=244
+./MLImageTransformer --inputfolder=my-images --outputfolder=my-images --flipmodes=None --rotatemodes=None --crop=true --cropwidth=244 --cropheight=244
 ```
 <p align="left">
   <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_None_None_crop_example1.jpg" alt="logo" width="200"/>
@@ -30,7 +30,7 @@ We can crop this image using the following commands:
 ### Crop to a 500 x 750 Square
 
 ```
-./MLImageTransformer --inputfolder=my-images --flipmodes=None --rotatemodes=None --crop=true --cropwidth=500 --cropheight=750
+./MLImageTransformer --inputfolder=my-images --outputfolder=my-images --flipmodes=None --rotatemodes=None --crop=true --cropwidth=500 --cropheight=750
 ```
 <p align="left">
   <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_None_None_crop_example2.jpg" alt="logo" width="200"/>

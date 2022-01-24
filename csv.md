@@ -12,10 +12,10 @@ Consider the following image, found in a directory titled `my-images` with a nam
 
 We can export a CSV file using the following commands:
 
-### Grayscale
+### CSV Generation
 
 ```
-./MLImageTransformer --inputfolder=my-images --flipmodes=Vertical Horizontal --rotatemodes=Rotate90 Rotate180 Rotate270 --exportcsv=true
+./MLImageTransformer --inputfolder=my-images --outputfolder=my-images --flipmodes=Vertical Horizontal --rotatemodes=Rotate90 Rotate180 Rotate270 --exportcsv=true
 ```
 The following CSV file will be generated:
 

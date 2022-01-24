@@ -33,7 +33,7 @@ We can flip this image using the following commands:
 ### Vertical Flip
 
 ```
-./MLImageTransformer --inputfolder=my-images --flipmodes=Vertical --rotatemodes=None
+./MLImageTransformer --inputfolder=my-images --outputfolder=my-images --flipmodes=Vertical --rotatemodes=None
 ```
 <p align="left">
   <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_Vertical_None.jpg" alt="logo" width="200"/>
@@ -44,7 +44,7 @@ We can flip this image using the following commands:
 ### Horizontal Flip
 
 ```
-./MLImageTransformer --inputfolder=my-images --flipmodes=Horizontal --rotatemodes=None
+./MLImageTransformer --inputfolder=my-images --outputfolder=my-images --flipmodes=Horizontal --rotatemodes=None
 ```
 <p align="left">
   <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_Horizontal_None.jpg" alt="logo" width="200"/>
@@ -55,7 +55,7 @@ We can flip this image using the following commands:
 ### Vertical & Horizontal Flip
 
 ```
-./MLImageTransformer --inputfolder=my-images --flipmodes=Horizontal Vertical --rotatemodes=None
+./MLImageTransformer --inputfolder=my-images --outputfolder=my-images --flipmodes=Horizontal Vertical --rotatemodes=None
 ```
 <p align="left">
 <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_Vertical_None.jpg" alt="logo" width="200"/>

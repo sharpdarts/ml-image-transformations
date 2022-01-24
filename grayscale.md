@@ -15,7 +15,7 @@ We can grayscale this image using the following commands:
 ### Grayscale
 
 ```
-./MLImageTransformer --inputfolder=my-images --flipmodes=None --rotatemodes=None --grayscale=true
+./MLImageTransformer --inputfolder=my-images --outputfolder=my-images --flipmodes=None --rotatemodes=None --grayscale=true
 ```
 <p align="left">
   <img src="https://raw.githubusercontent.com/sharpdarts/ml-image-transformations/gh-pages/_images/red-jacket_None_None_graysacle.jpg" alt="logo" width="200"/>
