@@ -28,6 +28,3 @@ red-jacket_Vertical_Rotate270.jpg
 red-jacket_Horizontal_Rotate270.jpg
 red-jacket_Horizontal_Rotate90.jpg
 ```
-
-### More Examples
-You can find more detailed examples here: [Examples Page](https://sharpdarts.github.io/ml-image-transformations/examples.html)

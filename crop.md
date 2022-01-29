@@ -37,6 +37,3 @@ We can crop this image using the following commands:
   <br />
   <em>Image size 500 x 750</em>
 </p>
-
-### More Examples
-You can find more detailed examples here: [Examples Page](https://sharpdarts.github.io/ml-image-transformations/examples.html)

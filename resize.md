@@ -55,6 +55,3 @@ We can resize this image using the following commands:
   <br />
   <em>Image size 1600 x 500</em>
 </p>
-
-### More Examples
-You can find more detailed examples here: [Examples Page](https://sharpdarts.github.io/ml-image-transformations/examples.html)
